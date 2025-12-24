@@ -1,0 +1,52 @@
+# ================================
+# ROS 2 / colcon build artifacts
+# ================================
+build/
+install/
+log/
+
+# ================================
+# Python artifacts
+# ================================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+dist/
+pip-wheel-metadata/
+
+# ================================
+# Virtual environments
+# ================================
+venv/
+.env/
+.venv/
+
+# ================================
+# VS Code
+# ================================
+.vscode/
+*.code-workspace
+
+# ================================
+# OS / Editor junk
+# ================================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# ================================
+# ROS logs / temp
+# ================================
+*.log
+
+# ================================
+# CMake (future-proofing)
+# ================================
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
