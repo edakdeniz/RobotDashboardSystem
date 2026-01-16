@@ -80,7 +80,24 @@
 
 .tab-button.disabled {
     color: #aaa;
-    cursor: not-allowed;
+    position: relative;
+}
+
+.tab-button.disabled:hover::after { 
+    content: "Not available while teleoperating"; 
+    position: absolute; 
+    bottom: -0.8rem; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    background: #5e5d5d; 
+    color: #fff; 
+    padding: 0.3rem 0.6rem; 
+    border-radius: 4px; 
+    font-size: 0.75rem; 
+    white-space: nowrap; 
+    z-index: 10; 
+    width: max-content;
+    height: max-content;    
 }
 
 
