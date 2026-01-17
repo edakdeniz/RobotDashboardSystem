@@ -1,10 +1,20 @@
-import { useModeContext } from './ModeUtil/ModeContext.js';
+import "./StatusPage.css";
+import battery from './assets/battery.svg';
+import wifi from './assets/wifi.svg';
+import raspberryPi from './assets/raspberry.svg';
+import comms from './assets/comms.svg'; 
+import ModeStatus from './ModeStatus.jsx';
 import { useTurtlebotStatus } from './Hooks/useTurtlebotStatus.js';
+import GeneralStatusBlock from './GeneralStatusBlock.jsx';
 
 
 export default function TurtlebotStatusPage() {
-    const { mode } = useModeContext();
     const { statusDTO, isLoading, error } = useTurtlebotStatus();
+
+    const batteryColor = statusDTO?.battery < 50 ? '#FF5A5F' : '#5AAE61'; 
+    const wifiColor = statusDTO?.wifi ? '#5AAE61' : '#FF5A5F'; 
+    const piColor = statusDTO?.raspberryPi ? '#5AAE61' : '#FF5A5F'; 
+    const commsColor = statusDTO?.comms ? '#5AAE61' : '#FF5A5F';
    
     if (isLoading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
@@ -12,12 +22,49 @@ export default function TurtlebotStatusPage() {
     return (
         <div className="turtlebot-status-page">
             <h2>Turtlebot Status</h2>
-            <p>Mode: {mode || 'Unknown'}</p>
-            <p>Battery: {statusDTO?.battery}%</p>
-            <p>WiFi: {statusDTO?.wifi ? 'Connected' : 'Disconnected'}</p>
-            <p>Raspberry Pi: {statusDTO?.raspberryPi ? 'Online' : 'Offline'}</p>
-            <p>Communications: {statusDTO?.comms ? 'OK' : 'Failed'}</p>
-            <p>Docking: {statusDTO?.docking ? 'Docked' : 'Undocked'}</p>
+            <div className="status-blocks">
+                <GeneralStatusBlock icon={
+                                <img
+                                    src={battery}
+                                    alt="Battery Icon"
+                                    className="battery-icon"
+                                />}
+                    label="Battery"
+                    status={`${statusDTO?.battery}%`}
+                    statusColor={batteryColor}
+                />
+                <GeneralStatusBlock icon={
+                                <img
+                                    src={wifi}
+                                    alt="WiFi Icon"
+                                    className="wifi-icon"
+                                />}
+                    label="WiFi"
+                    status={statusDTO?.wifi ? 'Connected' : 'Disconnected'}
+                    statusColor={wifiColor}
+                />
+                <GeneralStatusBlock icon={<img
+                                    src={raspberryPi}
+                                    alt="Raspberry Pi Icon"
+                                    className="raspberry-icon"
+                                />}
+                    label="Raspberry Pi"
+                    status={statusDTO?.raspberryPi ? 'Online' : 'Offline'}
+                    statusColor={piColor}
+                />
+                <GeneralStatusBlock icon={<img
+                                    src={comms}
+                                    alt="Comms Icon"
+                                    className="comms-icon"
+                                />}
+                    label="Comms"
+                    status={statusDTO?.comms ? 'Connected' : 'Failed'}
+                    statusColor={commsColor}
+                />
+            </div>
+            <div className="mode-status-container">
+                <ModeStatus />
+            </div>
         </div>
     );
 };

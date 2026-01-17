@@ -6,11 +6,11 @@ function useTurtlebotStatus() {
 
 
      return { statusDTO: {
-        battery: 95,
+        battery: 10,
         wifi: true,
-        raspberryPi: true,
+        raspberryPi: false,
         comms: true,
-        mode: 'Teleoperating',
+        mode: 'Running Path Module',
         docking: false, },
         isLoading: false,
         error: null,

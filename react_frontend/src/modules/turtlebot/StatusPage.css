@@ -1,0 +1,61 @@
+.turtlebot-status-page { 
+    padding: 2rem; 
+    background-color: #f6f6f6; 
+    color: #333; 
+}
+
+.status-blocks {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.general-status-block { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: left; 
+    gap: 0.5rem; 
+    padding: 1rem; 
+    border-radius: 20px; 
+    background-color: #fff; 
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); 
+    width: 150px; }
+
+.status-icon { 
+    font-size: 2rem; 
+    color: #007b8f; 
+} 
+
+.status-info { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start; 
+} 
+
+.status-label { 
+    font-weight: 650; 
+    font-size: 1rem; 
+    color: #333; 
+} 
+
+.battery-icon, .wifi-icon, .raspberry-icon, .comms-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.mode-status { 
+    display: flex; 
+    align-items: center; 
+    gap: 0.5rem; 
+    font-size: 1.2rem; 
+    font-weight: 500; 
+    margin-top: 1rem; 
+} 
+
+.mode-label { 
+    color: #555; 
+} 
+
+.mode-value {  
+    font-weight: 600; 
+}
