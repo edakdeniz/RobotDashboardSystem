@@ -1,18 +1,15 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const tabNames = ['Summary', 'Child'];
-const pathMap = { Summary: 'summary', Child: 'session' };
 
 export default function PixelbotNavBar() {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const activeTab = tabNames.find(tab => location.pathname.endsWith(pathMap[tab])) || 'Summary';
-
-    function switchTab(tabName) {
-        const to = pathMap[tabName] ?? 'summary';
-        navigate(to);
-    }
+    const activeTab = tabNames.find(tab => location.pathname.endsWith(tab.toLowerCase())) || 'Summary';
+    const switchTab = (tabName) => {
+        navigate(`/pixelbot/${tabName.toLowerCase()}`);
+    };
 
     return (
         <div className="pixelbot-navbar">

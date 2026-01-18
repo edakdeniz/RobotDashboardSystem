@@ -1,7 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import Header from '../global/Header';
-import PixelbotNavBar from './PixelbotNavBar';
-
+import PixelbotNavBar from './PixelbotNavBar.jsx';
 
 export default function PixelbotLayout() {
     return (

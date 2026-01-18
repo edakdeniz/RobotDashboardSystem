@@ -1,50 +1,18 @@
-/*CHANGE THIS TO PIXELBOT REDIRECTION FILE*/ 
+import "./Pixelbot.css";
+import { Routes, Route, Navigate } from 'react-router-dom';
+import PixelbotLayout from './PixelbotLayout.jsx';
+import PixelbotSummaryPage from './PixelbotSummaryPage.jsx';
+import PixelbotChildPage from './PixelbotChildPage.jsx';
 
-import { Link } from 'react-router-dom';
-
-function Homepage() {
+export default function Pixelbot() {
     return (
-        <div className="page">
-            {/* Header */}
-            <header className="header">
-                <span className="header-line">Dashboard</span>
-                <img
-                    src={kitLogo}
-                    alt="KIT Logo"
-                    className="logo"
-                />
-            </header>
-
-            {/* Title section */}
-            <section className="title-section">
-                <h1 className="title">SARAI</h1>
-                <p className="subtitle">
-                    Socially Assistive Robotics with Artificial Intelligence
-                </p>
-            </section>
-
-            {/* Buttons */}
-            <section className="button-section">
-                <Link to="/pixelbot" className="card pixelbot">
-                    <img
-                    src={pixelbotLogo}
-                    alt="Pixelbot Logo"
-                    className="logo"
-                    />
-                    <p>Pixelbot</p>
-                </Link>
-
-                <Link to="/turtlebot" className="card turtlebot">
-                    <img
-                    src={turtlebotLogo}
-                    alt="Turtlebot Logo"
-                    className="logo"
-                    />
-                    <p>Turtlebot4</p>
-                </Link>
-            </section>
-        </div>
+        <Routes>
+            <Route element={<PixelbotLayout />}>
+                <Route path="summary" element={<PixelbotSummaryPage />} />
+                <Route path="child" element={<PixelbotChildPage />} />
+                <Route index element={<Navigate to="summary" replace />} />
+                <Route path="*" element={<Navigate to="/pixelbot" replace />} /> {/* Fallback */}
+            </Route>
+        </Routes>
     );
 }
-
-export default Homepage;
