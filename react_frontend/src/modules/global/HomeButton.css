@@ -1,6 +1,6 @@
 .home-button {
-  width: 40px;
-  height: 40px;
+  width: 2rem;
+  height: 2rem;
   padding: 6px;
   display: inline-flex;
   align-items: center;
@@ -18,7 +18,7 @@
   background: #00A69977;
 }
 
-.home-button svg {
-  width: 24px;
-  height: 24px;
+.home-button img {
+  width: 32px;
+  height: 32px;
 }
