@@ -137,6 +137,7 @@
 
 .horizontal-row {
     display: flex;
+    flex-direction: row;
     gap: 3.9rem;
 }
 
