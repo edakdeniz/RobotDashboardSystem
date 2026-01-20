@@ -17,7 +17,9 @@
 /* Navbar Styling*/
 
 .turtlebot-navbar {
-    font-family: Helvetica, sans-serif;
+    position: fixed;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     padding-left: 2rem;
     text-align: left;
     background-color: #F6F6F6;
@@ -98,12 +100,10 @@
 .turtlebot-layout {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
 }
 
 
 .turtlebot-content {
     flex: 1;
     padding: 2rem;
-    background-color: #f6f6f6;
 }

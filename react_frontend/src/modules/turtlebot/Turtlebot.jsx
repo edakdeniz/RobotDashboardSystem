@@ -6,7 +6,6 @@ import TurtlebotStatusPage from './TurtlebotStatusPage.jsx';
 import TurtlebotMapPage from './TurtlebotMapPage.jsx';
 import TurtlebotFeedbackPage from './TurtlebotFeedbackPage.jsx';
 
-
 export default function Turtlebot() {
     return (
         <ModeProvider>
@@ -16,6 +15,7 @@ export default function Turtlebot() {
                     <Route path="map" element={<TurtlebotMapPage />} />
                     <Route path="feedback" element={<TurtlebotFeedbackPage />} />
                     <Route index element={<Navigate to="status" replace />} />
+                    <Route path="*" element={<Navigate to="/turtlebot" replace />} /> {"Fallback"}
                 </Route>
             </Routes>
         </ModeProvider>
